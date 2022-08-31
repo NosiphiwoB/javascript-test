@@ -3,26 +3,30 @@ var total= 0
 
 // Create a function that adds to groceryList:
 const addToGroceryList = (item) => {
-    groceryList.push(item)
+   groceryList.push(item)
 };
-console.log(addToGroceryList({name:'Pap', price:20 , quantity: 1}))
+console.log("adding to groceryList",addToGroceryList({name:'Pap', price:20 , quantity: 1}))
 console.log("added item",groceryList)
 
-
-
 // Create a function that removes items based on index groceryList:
-const removeBasedOnIndex = (item) => {
-  groceryList.splice(0,1) 
+const removeBasedOnIndex = (index) => {
+    // console.log('index', index)
+  return groceryList.splice(index ,1) 
 }
-console.log(removeBasedOnIndex(0))
+console.log("rem",removeBasedOnIndex(0))
+console.log("removed item",groceryList)
+
 // output: groceryList must be [{name:'Pap', price:20 , quantity: 1}]
 
 
 // Create a function to calculate the total price of items based on price and quantity:
 const calculateTotal = () => {
 
-return total + price * quantity
-
+for (let i in groceryList) {
+    total += groceryList[i].price * groceryList[i].quantity
+    
+    return total
+}
 }
 
 // function must return 20
